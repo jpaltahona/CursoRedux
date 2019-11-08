@@ -7,7 +7,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.margin {
+  margin: 100px;
+}
+.tabla{
+  width: 100%;
+  text-align: left;
+}
+.tabla td{
+  padding: 10px 0px;
+}
+
+#menu {
+  background-color: #253a46;
+  padding: 20px;
+  font-size: 20px;
+}
+#menu a {
+  color: #fff;;
+  padding-right: 50px;
 }
