@@ -1,5 +1,4 @@
 import React, {Component } from 'react';
-
 import { connect } from 'react-redux';
 import * as usuariosReducers from '../../actions/usuariosActions';
 import Spinner from '../general/Spinner.jsx';
@@ -23,7 +22,6 @@ class Usuarios extends Component {
     }
   
     render(){
-        console.log(this.props)
         return (
             <div >
                 <h1>Usuarios</h1>
