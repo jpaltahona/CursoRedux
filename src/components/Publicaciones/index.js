@@ -1,14 +1,21 @@
 import React ,{ Component } from 'react';
 import {connect} from 'react-redux';
-import * as usuariosReducers from '../../actions/usuariosActions';
+import * as usuariosActions from '../../actions/usuariosActions';
+import * as publicacionesAction from '../../actions/publicacionesActions';
+
+//Lista de acciones
+const { traerTodos: usuariosTraerTodos } = usuariosActions;
+const { traerPorUsuario: PublicacionestraerPorUsuario } = publicacionesAction; 
+
+
 
 class Publicaciones extends Component{
-
-    componentDidMount(){
-
-        if(!this.props.usuarios.length){
-            this.props.traerTodos();
+ 
+   async componentDidMount(){
+        if(!this.props.usuariosReducers.usuarios.length){
+           await this.props.usuariosTraerTodos();
         }
+        this.props. PublicacionestraerPorUsuario( this.props.match.params.key );
     }
 
     render(){
@@ -22,8 +29,16 @@ class Publicaciones extends Component{
     }
 }
 
-const mapStateToProps = (store) => {
-    return store.usuariosReducers;
+const mapStateToProps = ({usuariosReducers, publicacionesReducer }) => {
+    return {
+        usuariosReducers,
+        publicacionesReducer
+    };
 }
 
-export default connect( mapStateToProps, usuariosReducers )(Publicaciones);
+const mapDispatchToProps = {
+    usuariosTraerTodos,
+    PublicacionestraerPorUsuario
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )(Publicaciones);
